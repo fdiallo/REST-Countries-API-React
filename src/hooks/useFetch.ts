@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Define a reusable hook to handle API calls 
+ * with loading and error states
+ */
 export function useFetch<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
