@@ -48,7 +48,6 @@ const Home = () => {
               <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
               <p><strong>Region:</strong> {country.region}</p>
               <p><strong>Capital:</strong> {country.capital?.[0]}</p>
-              <p><strong>CCA3:</strong> {country.cca3}</p>
             </div><br /><hr /><br />
           </Link>
         ))}
