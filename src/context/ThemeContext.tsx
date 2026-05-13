@@ -6,6 +6,9 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
+/**
+ * Define the context and manages theme
+ */
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

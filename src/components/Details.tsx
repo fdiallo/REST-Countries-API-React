@@ -1,14 +1,22 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 
+/**
+ * Display country details
+ * Includes logic for clicking through border countries
+ * Navigation is handled via react-router-dom
+ */
 const Details = () => {
+    //Get the country passed via url paramas
   const { name } = useParams();
   console.log("URL Params ID: ", {name})
   const navigate = useNavigate();
   
+    //Make the api call and fetch countrie data using useFetch custom hook
   const { data: countryArr, loading } = useFetch<any[]>(`https://restcountries.com/v3.1/name/${name}`);
   
-  if (loading || !countryArr) return <div>Loading details...</div>;
+    if (loading || !countryArr) return <div>Loading details...</div>;
+    //Get the first country from the response
   const country = countryArr[0];
 
   return (
