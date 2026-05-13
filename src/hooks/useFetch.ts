@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 
-/**
- * Define a reusable hook to handle API calls 
- * with loading and error states
- */
 export function useFetch<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
@@ -14,8 +10,12 @@ export function useFetch<T>(url: string) {
       try {
         setLoading(true);
         const res = await fetch(url);
-        if (!res.ok) throw new Error('Failed to fetch data');
+        console.log("Countries API URL: ", url)
+        //console.log("Countries API Response: ", res)
+        console.log("Response OKAY: ", res.ok)
+        //if (!res.ok) throw new Error('Failed to fetch data');
         const json = await res.json();
+        //console.log("Countries Resposnse JSON: ", json)
         setData(json);
       } catch (err: any) {
         setError(err.message);
